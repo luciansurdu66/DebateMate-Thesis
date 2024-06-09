@@ -12,7 +12,6 @@ const DebaterListPage = () => {
 
   const fetchDebaters = async () => {
     const debatersData = (await DebaterService.getDebaters()).debaters;
-    console.log(debatersData);
     if (Array.isArray(debatersData)) {
       setDebaters(debatersData);
     } else {

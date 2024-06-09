@@ -3,8 +3,6 @@ import axios from 'axios';
 const DebaterService = {
   importDebaters: async (file) => {
     try {
-      console.log(file instanceof File); // should be true
-    console.log(file instanceof Blob); // should be true
       const formData = new FormData();
       formData.append('file', file);
       console.log(file.name);
@@ -26,11 +24,20 @@ const DebaterService = {
   getDebaters: async () => {
     try {
       const response = await axios.get('http://localhost:5000/api/debaters');
-      console.log(response.data);
       return { success: true, debaters: response.data };
     } catch (error) {
       console.error(error);
       return { success: false, debaters: [] };
+    }
+  },
+
+  getDebater: async (id) => {
+    try {
+      const response = await axios.get('http://localhost:5000/api/debaters/'+id);
+      return { success: true, debater: response.data };
+    } catch (error) {
+      console.error(error);
+      return { success: false, debater: [] };
     }
   }
 };

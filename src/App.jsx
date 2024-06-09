@@ -10,10 +10,14 @@ import HomePage from './components/HomePage';
 import RegisterPage from './components/auth/registerPage.jsx';
 import DebaterListPage from './components/Debater/DebaterListPage';
 import AdjudicatorImportPage from './components/Adjudicator/AdjudicatorImportPage';
-import TeamListPage from './components/Team/TeamListPage'
+import TeamListPage from './components/Team/TeamListPage';
 import CreateChampionship from './components/Championship/createChampionship.jsx';
-import RoundPage from './components/Championship/roundPage.jsx'
-import ChampionshipList from './components/Championship/championshipList.jsx'
+import RoundPage from './components/Championship/roundPage.jsx';
+import AdjudicatorList from './components/Adjudicator/adjudicatorList.jsx';
+import ChampionshipList from './components/Championship/championshipList.jsx';
+import FeedbackBallotPage from './components/Championship/FeedbackBallotPage.jsx'
+import DebaterLeaderboardPage from './components/Championship/debaterLeaderboardPage.jsx';
+import TeamLeaderboardPage from './components/Championship/teamLeaderboardPage.jsx';
 export const App = () => {
     return (
         <AuthProvider>
@@ -31,6 +35,10 @@ export const App = () => {
                     <Route path="/createchampionship" element={<CreateChampionship/>} roles={['admin']} />
                     <Route path="/championships/:id/rounds/:roundNumber" element={<RoundPage />} roles={['admin']} />
                     <Route path="/championships" element={<ChampionshipList />} roles={['admin']} />
+                    <Route path="/adjudicators" element={<AdjudicatorList/>} />
+                    <Route path="/feedback-ballot/:id" element={<FeedbackBallotPage/>} />
+                    <Route path="/championships/:id/leaderboard/debaters" element={<DebaterLeaderboardPage />} />
+                    <Route path="/championships/:id/leaderboard/teams" element={<TeamLeaderboardPage />} />
                 </Routes>
             </Router>
         </AuthProvider>

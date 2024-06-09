@@ -21,6 +21,16 @@ const AdjudicatorService = {
           return { success: false, message: 'Failed to import Adjudicators service' };
         }
       },
+      getAdjudicators: async () => {
+        try {
+          const response = await axios.get('http://localhost:5000/api/adjudicators');
+          console.log(response.data);
+          return { success: true, adjudicators: response.data };
+        } catch (error) {
+          console.error(error);
+          return { success: false, adjudicators: [] };
+        }
+      }
 
     }
 
